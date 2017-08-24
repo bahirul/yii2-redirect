@@ -11,7 +11,7 @@ class Redirect
 
 	public function to($url)
 	{
-		$this->url = $url
+		$this->url = $url;
 
 		return $this;
 	}
