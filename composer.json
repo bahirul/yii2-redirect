@@ -1,0 +1,22 @@
+{
+    "name": "bahirul/yii2-redirect",
+    "description": "Yii2 Redirect Component",
+    "type": "yii2-component",
+    "keywords": ["yii2","components","extension"],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bahirul Rizki A",
+            "email": "bahirul@yiiframework.id"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "bahirul\\yii2redirect\\": "./src"
+        }
+    }
+}
