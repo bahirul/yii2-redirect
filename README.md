@@ -25,9 +25,9 @@ Add to your web configuration, in components section :
 
 Use in controller or where you want:
 
-    Yii::$app->redirect->to($url); //redirect only
+    Yii::$app->redirect->to($url)->send(); //redirect only
     
-    Yii::$app->redirect->to($url)->withFlash($flash_name,$flash_message); //redirect with flash message
+    Yii::$app->redirect->to($url)->withFlash($flash_name,$flash_message)->send(); //redirect with flash message
 
-    Yii::$app->redirect->prev(); //redirect to previous page or home page (if previous page is null)
+    Yii::$app->redirect->prev()->send(); //redirect to previous page or home page (if previous page is null)
 
