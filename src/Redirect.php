@@ -6,7 +6,18 @@ use yii\web\Request;
 
 class Redirect
 {
+    /**
+     * [$url description]
+     *
+     * @var [type]
+     */
     private $url;
+
+    /**
+     * [$flash description]
+     *
+     * @var array
+     */
     private $flash = [];
 
     /**
