@@ -6,40 +6,42 @@ use yii\web\Request;
 
 class Redirect
 {
-	private $url;
-	private $flash = [];
+    private $url;
+    private $flash = [];
 
-	public function to($url)
-	{
-		$this->url = $url;
+    public function to($url)
+    {
+        $this->url = $url;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function withFlash($name, $message)
-	{
-		$this->flash['name'] = $name;
-		$this->flash['message'] = $message;
+    public function withFlash($name, $message)
+    {
+        $this->flash['name'] = $name;
+        $this->flash['message'] = $message;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function prev()
-	{
-		$referrer = \Yii::$app->request->referrer;
-		$this->url = $referrer;
-		
-		if(!$referrer){
-			$this->url = \Yii::$app->defaultRoute;
-		}
+    public function prev()
+    {
+        $referrer = \Yii::$app->request->referrer;
+        $this->url = $referrer;
+        
+        if (!$referrer) {
+            $this->url = \Yii::$app->defaultRoute;
+        }
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function send()
-	{
-		\Yii::$app->session->setFlash($this->flash['name'], $this->flash['message']);
+    public function send()
+    {
+        if (isset($this->flash['name']) && isset($this->flash['message'])) {
+            \Yii::$app->session->setFlash($this->flash['name'], $this->flash['message']);
+        }
 
-		return (new Response())->redirect($this->url);
-	}
+        return (new Response())->redirect($this->url);
+    }
 }
