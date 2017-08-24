@@ -31,7 +31,7 @@ Add to your web configuration, in components section :
     ....
     
 
-Use in controller or where you want:
+Use in controller or wherever you want:
 
     Yii::$app->redirect->to($url)->send(); //redirect only
     
