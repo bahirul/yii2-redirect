@@ -8,7 +8,7 @@ Instalation
 
 The prefered way to install this component is throught [composer](https://getcomposer.org/download)
 
-    composer require bahirul\yii2-redirect
+    composer require bahirul/yii2-redirect
     
 
 Usage
