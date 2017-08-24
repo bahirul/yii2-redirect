@@ -30,7 +30,7 @@ class Redirect
 		$this->url = $referrer;
 		
 		if(!$referrer){
-			$this->url = Yii::$app->defaultRoute;
+			$this->url = \Yii::$app->defaultRoute;
 		}
 
 		return $this;
