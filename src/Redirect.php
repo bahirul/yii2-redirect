@@ -9,6 +9,13 @@ class Redirect
     private $url;
     private $flash = [];
 
+    /**
+     * [to description]
+     *
+     * @param [type] $url [description]
+     *
+     * @return [type] [description]
+     */
     public function to($url)
     {
         $this->url = $url;
@@ -16,6 +23,14 @@ class Redirect
         return $this;
     }
 
+    /**
+     * [withFlash description]
+     *
+     * @param [type] $name    [description]
+     * @param [type] $message [description]
+     *
+     * @return [type] [description]
+     */
     public function withFlash($name, $message)
     {
         $this->flash['name'] = $name;
@@ -24,6 +39,11 @@ class Redirect
         return $this;
     }
 
+    /**
+     * [prev description]
+     *
+     * @return [type] [description]
+     */
     public function prev()
     {
         $referrer = \Yii::$app->request->referrer;
@@ -36,6 +56,23 @@ class Redirect
         return $this;
     }
 
+    /**
+     * [login description]
+     *
+     * @return [type] [description]
+     */
+    public function login()
+    {
+        $this->url = \Yii::$app->user->loginUrl != null ? \Yii::$app->user->loginUrl :  '';
+
+        return $this;
+    }
+
+    /**
+     * [send description]
+     *
+     * @return [type] [description]
+     */
     public function send()
     {
         if (isset($this->flash['name']) && isset($this->flash['message'])) {

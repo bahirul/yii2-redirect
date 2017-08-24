@@ -9,6 +9,7 @@ Features
 - Simple redirect via component
 - Redirect with flash
 - Redirect to previous page
+- Redirect to login page
 
 Instalation
 -------
@@ -37,6 +38,8 @@ Use in controller or where you want:
     Yii::$app->redirect->to($url)->withFlash($flash_name,$flash_message)->send(); //redirect with flash message
 
     Yii::$app->redirect->prev()->send(); //redirect to previous page or home page (if previous page is null)
+
+    Yii::$app->redirect->login()->send(); //redirect to login page
 
 
 License
