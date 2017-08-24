@@ -2,11 +2,19 @@
 namespace bahirul\yii2redirect;
 
 use yii\web\Response;
+use yii\web\Request;
 
 class Redirect
 {
 	private $url;
 	private $flash = [];
+
+	public function to(array|string $url)
+	{
+		$this->url = $url
+
+		return $this;
+	}
 
 	public function withFlash(string $name, string $message)
 	{
@@ -16,10 +24,9 @@ class Redirect
 		return $this;
 	}
 
-	public function to(array|string $url)
+	public function prev()
 	{
-		$this->url = $url
-
+		$this->url = \Yii::$app->request->referrer;
 		return $this;
 	}
 
