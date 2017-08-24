@@ -29,3 +29,5 @@ Use in controller or where you want:
     
     Yii::$app->redirect->to($url)->withFlash($flash_name,$flash_message); //redirect with flash message
 
+    Yii::$app->redirect->prev(); //redirect to previous page or home page (if previous page is null)
+
