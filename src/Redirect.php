@@ -26,7 +26,13 @@ class Redirect
 
 	public function prev()
 	{
-		$this->url = \Yii::$app->request->referrer;
+		$referrer = \Yii::$app->request->referrer;
+		$this->url = $referrer;
+		
+		if(!$referrer){
+			$this->url = Yii::$app->defaultRoute;
+		}
+
 		return $this;
 	}
 
