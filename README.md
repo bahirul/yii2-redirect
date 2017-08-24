@@ -1,7 +1,14 @@
 Yii2 Redirect
 =======
 
-Simple yii2 redirection with flash support.
+Simple yii2 redirection.
+
+Features
+-------
+
+- Simple redirect via component
+- Redirect with flash
+- Redirect to previous page
 
 Instalation
 -------
