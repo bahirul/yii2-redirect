@@ -1,7 +1,7 @@
 Yii2 Redirect
 =======
 
-Simple yii2 redirection.
+Simple yii2 redirect component.
 
 Features
 -------
@@ -38,3 +38,8 @@ Use in controller or where you want:
 
     Yii::$app->redirect->prev()->send(); //redirect to previous page or home page (if previous page is null)
 
+
+License
+--------
+
+Read [LICENSE.md](LICENSE.md)
