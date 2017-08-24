@@ -9,14 +9,14 @@ class Redirect
 	private $url;
 	private $flash = [];
 
-	public function to(array|string $url)
+	public function to($url)
 	{
 		$this->url = $url
 
 		return $this;
 	}
 
-	public function withFlash(string $name, string $message)
+	public function withFlash($name, $message)
 	{
 		$this->flash['name'] = $name;
 		$this->flash['message'] = $message;
