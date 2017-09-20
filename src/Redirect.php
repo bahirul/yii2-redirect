@@ -1,47 +1,23 @@
 <?php
 namespace bahirul\yii2redirect;
 
-use yii\web\Response;
-use yii\web\Request;
+use Yii;
+use yii\helpers\Url;
 
 class Redirect
 {
-    /**
-     * [$url description]
-     *
-     * @var [type]
-     */
     private $url;
-
-    /**
-     * [$flash description]
-     *
-     * @var array
-     */
+    private $statusCode;
     private $flash = [];
 
-    /**
-     * [to description]
-     *
-     * @param [type] $url [description]
-     *
-     * @return [type] [description]
-     */
-    public function to($url)
+    public function to($url, $statusCode = 302)
     {
         $this->url = $url;
+        $this->statusCode = $statusCode;
 
         return $this;
     }
 
-    /**
-     * [withFlash description]
-     *
-     * @param [type] $name    [description]
-     * @param [type] $message [description]
-     *
-     * @return [type] [description]
-     */
     public function withFlash($name, $message)
     {
         $this->flash['name'] = $name;
@@ -50,46 +26,26 @@ class Redirect
         return $this;
     }
 
-    /**
-     * [prev description]
-     *
-     * @return [type] [description]
-     */
     public function prev()
     {
-        $referrer = \Yii::$app->request->referrer;
+        $referrer = Yii::$app->request->referrer;
+
         $this->url = $referrer;
         
         if (!$referrer) {
-            $this->url = \Yii::$app->defaultRoute;
+            $this->url = Yii::$app->defaultRoute;
         }
 
         return $this;
     }
 
-    /**
-     * [login description]
-     *
-     * @return [type] [description]
-     */
-    public function login()
-    {
-        $this->url = \Yii::$app->user->loginUrl != null ? \Yii::$app->user->loginUrl :  '';
-
-        return $this;
-    }
-
-    /**
-     * [send description]
-     *
-     * @return [type] [description]
-     */
     public function send()
     {
         if (isset($this->flash['name']) && isset($this->flash['message'])) {
             \Yii::$app->session->setFlash($this->flash['name'], $this->flash['message']);
         }
 
-        return (new Response())->redirect($this->url);
+        return Yii::$app->response->redirect(Url::to($this->url), $this->statusCode);
+
     }
 }
