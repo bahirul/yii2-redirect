@@ -38,26 +38,28 @@ return [
 
 ## Usage
 
+Use in your controller action
+
 ### Redirect to URL
 
 ```php
-Yii::$app->redirect->to($url)->go(); //redirect only
+return Yii::$app->redirect->to($url)->go(); //redirect only
 ```
 
 ### Redirect with flash message
 
 ```php
-Yii::$app->redirect->to($url)->flash($flash_name, $flash_message)->go(); //redirect with flash message
+return Yii::$app->redirect->to($url)->flash($flash_name, $flash_message)->go(); //redirect with flash message
 ```
 
 ### Redirect to previous page
 
 ```php
-Yii::$app->redirect->prev()->go(); //redirect to previous page or home page (if previous page is null)
+return Yii::$app->redirect->prev()->go(); //redirect to previous page or home page (if previous page is null)
 ```
 
 ### Redirect to Login page
 
 ```php
-Yii::$app->redirect->login()->go(); //redirect to login page
+return Yii::$app->redirect->login()->go(); //redirect to login page
 ```
