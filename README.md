@@ -15,7 +15,7 @@ $ composer require bahirul/yii2-redirect
 or add
 
 ```
-"bahirul/yii2-redirect": "^0.0.2"
+"bahirul/yii2-redirect": "^0.0.1"
 ```
 
 to the `require` section of your `composer.json` file.
