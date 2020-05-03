@@ -1,22 +1,22 @@
 {
     "name": "bahirul/yii2-redirect",
     "description": "Simple Yii2 Redirect Component",
-    "type": "yii2-component",
-    "keywords": ["yii2","components","extension"],
+    "type": "extension",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "yiisoft/yii2": "*"
+        "yiisoft/yii2": "^2.0",
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "Bahirul Rizki A",
-            "email": "bahirul@yiiframework.id"
+            "name": "Bahirul Rizki Ariyanto",
+            "email": "rizki.device@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "bahirul\\yii2redirect\\": "./src"
+            "bahirul\\yii2\\": "src"
         }
     }
 }

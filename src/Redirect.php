@@ -1,5 +1,5 @@
 <?php
-namespace bahirul\yii2redirect;
+namespace bahirul\yii2;
 
 use Yii;
 use yii\helpers\Url;
@@ -39,7 +39,7 @@ class Redirect
         return $this;
     }
 
-    public function send()
+    public function go()
     {
         if (isset($this->flash['name']) && isset($this->flash['message'])) {
             \Yii::$app->session->setFlash($this->flash['name'], $this->flash['message']);

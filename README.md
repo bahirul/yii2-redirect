@@ -1,48 +1,63 @@
-Yii2 Redirect
-=======
+# Yii2 Redirect
 
 Simple yii2 redirect component.
 
-Features
--------
+## Installation
 
-- Simple redirect via component
-- Redirect with flash
-- Redirect to previous page
-- Redirect to login page
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Instalation
--------
+Either run
 
-The prefered way to install this component is throught [composer](https://getcomposer.org/download)
+```bash
+$ composer require bahirul/yii2-redirect
+```
 
-    composer require bahirul/yii2-redirect
-    
+or add
 
-Usage
--------
+```
+"bahirul/yii2-redirect": "^0.0.2"
+```
 
-Add to your web configuration, in components section :
+to the `require` section of your `composer.json` file.
 
-    ....
-    components => [
-        'redirect' => 'bahirul\yii2redirect\Redirect'
-    ]
-    ....
-    
+## Configuring
 
-Use in controller or wherever you want:
+Configure application `components` as follows
 
-    Yii::$app->redirect->to($url)->send(); //redirect only
-    
-    Yii::$app->redirect->to($url)->withFlash($flash_name,$flash_message)->send(); //redirect with flash message
+```php
+return [
+    //...
+    'components' => [
+        //...
+        'redirect' => [
+            'class' => 'bahirul\yii2\Redirect',
+        ],
+    ],
+];
+```
 
-    Yii::$app->redirect->prev()->send(); //redirect to previous page or home page (if previous page is null)
+## Usage
 
-    Yii::$app->redirect->login()->send(); //redirect to login page
+### Redirect to URL
 
+```php
+Yii::$app->redirect->to($url)->go(); //redirect only
+```
 
-License
---------
+### Redirect with flash message
 
-Read [LICENSE.md](LICENSE.md)
+```php
+Yii::$app->redirect->to($url)->withFlash($flash_name, $flash_message)->go(); //redirect with flash message
+```
+
+### Redirect to previous page
+
+```php
+Yii::$app->redirect->prev()->go(); //redirect to previous page or home page (if previous page is null)
+```
+
+### Redirect to Login page
+
+```php
+Yii::$app->redirect->login()->go(); //redirect to login page
+```
