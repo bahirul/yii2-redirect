@@ -18,7 +18,7 @@ class Redirect
         return $this;
     }
 
-    public function withFlash($name, $message)
+    public function flash($name, $message)
     {
         $this->flash['name'] = $name;
         $this->flash['message'] = $message;
@@ -37,6 +37,15 @@ class Redirect
         }
 
         return $this;
+    }
+
+    public function login()
+    {
+        $loginUrl = isset(Yii::$app->user->loginUrl) ? Yii::$app->user->loginUrl : Yii::$app->defaultRoute;
+
+        $this->url = $loginUrl;
+
+        return $this;       
     }
 
     public function go()

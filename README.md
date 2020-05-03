@@ -47,7 +47,7 @@ Yii::$app->redirect->to($url)->go(); //redirect only
 ### Redirect with flash message
 
 ```php
-Yii::$app->redirect->to($url)->withFlash($flash_name, $flash_message)->go(); //redirect with flash message
+Yii::$app->redirect->to($url)->flash($flash_name, $flash_message)->go(); //redirect with flash message
 ```
 
 ### Redirect to previous page
